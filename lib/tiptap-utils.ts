@@ -408,6 +408,27 @@ export const handleImageUpload = async (
   return data.data.url;
 };
 
+// export const handleAudioUpload = async (
+//   file: File,
+//   onProgress?: (event: { progress: number }) => void,
+// ): Promise<string> => {
+//   return uploadFileToEndpoint("/api/upload/audio", file, onProgress);
+// };
+
+// export const handleVideoUpload = async (
+//   file: File,
+//   onProgress?: (event: { progress: number }) => void,
+// ): Promise<string> => {
+//   return uploadFileToEndpoint("/api/upload/video", file, onProgress);
+// };
+
+// export const handlePdfUpload = async (
+//   file: File,
+//   onProgress?: (event: { progress: number }) => void,
+// ): Promise<string> => {
+//   return uploadFileToEndpoint("/api/upload/pdf", file, onProgress);
+// };
+
 type ProtocolOptions = {
   /**
    * The protocol scheme to be registered.

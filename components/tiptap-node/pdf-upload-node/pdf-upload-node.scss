@@ -1,0 +1,215 @@
+:root {
+  --tiptap-pdf-upload-active: var(--tt-brand-color-500);
+  --tiptap-pdf-upload-icon-bg: var(--tt-brand-color-500);
+
+  --tiptap-pdf-upload-text-color: var(--tt-gray-light-a-700);
+  --tiptap-pdf-upload-subtext-color: var(--tt-gray-light-a-400);
+  --tiptap-pdf-upload-border: var(--tt-gray-light-a-300);
+  --tiptap-pdf-upload-border-hover: var(--tt-gray-light-a-400);
+  --tiptap-pdf-upload-border-active: var(--tt-brand-color-500);
+
+  --tiptap-pdf-upload-icon-doc-bg: var(--tt-gray-light-a-200);
+  --tiptap-pdf-upload-icon-doc-border: var(--tt-gray-light-300);
+  --tiptap-pdf-upload-icon-color: var(--white);
+
+  --tiptap-pdf-upload-card-border: var(--tt-gray-light-a-200);
+  --tiptap-pdf-upload-card-text: var(--tt-gray-light-a-700);
+  --tiptap-pdf-upload-card-hover: var(--tt-gray-light-a-50);
+}
+
+.dark {
+  --tiptap-pdf-upload-active: var(--tt-brand-color-400);
+  --tiptap-pdf-upload-icon-bg: var(--tt-brand-color-400);
+
+  --tiptap-pdf-upload-text-color: var(--tt-gray-dark-a-700);
+  --tiptap-pdf-upload-subtext-color: var(--tt-gray-dark-a-400);
+  --tiptap-pdf-upload-border: var(--tt-gray-dark-a-300);
+  --tiptap-pdf-upload-border-hover: var(--tt-gray-dark-a-400);
+  --tiptap-pdf-upload-border-active: var(--tt-brand-color-400);
+
+  --tiptap-pdf-upload-icon-doc-bg: var(--tt-gray-dark-a-200);
+  --tiptap-pdf-upload-icon-doc-border: var(--tt-gray-dark-300);
+  --tiptap-pdf-upload-icon-color: var(--black);
+
+  --tiptap-pdf-upload-card-border: rgba(255, 255, 255, 0.12);
+  --tiptap-pdf-upload-card-text: rgba(255, 255, 255, 0.84);
+  --tiptap-pdf-upload-card-hover: rgba(255, 255, 255, 0.08);
+}
+
+.tiptap-pdf-upload-node {
+  margin: 2rem 0;
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .tiptap-pdf-upload-node__dropzone {
+    padding: 2rem 1.5rem;
+    border: 1.5px dashed var(--tiptap-pdf-upload-border);
+    border-radius: var(--tt-radius-md, 0.5rem);
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    background: transparent;
+
+    &:hover {
+      border-color: var(--tiptap-pdf-upload-border-hover);
+    }
+
+    &.drag-over {
+      border-color: var(--tiptap-pdf-upload-border-active);
+      background-color: rgba(
+        var(--tiptap-image-upload-active-rgb, 139, 92, 246),
+        0.1
+      );
+    }
+  }
+
+  &.is-dragging .tiptap-pdf-upload-node__dropzone {
+    border-color: var(--tiptap-pdf-upload-border-active);
+    background-color: rgba(
+      var(--tiptap-image-upload-active-rgb, 139, 92, 246),
+      0.05
+    );
+  }
+
+  .tiptap-pdf-upload-node__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.25rem;
+    user-select: none;
+  }
+
+  .tiptap-pdf-upload-node__dropzone-file {
+    position: relative;
+    width: 3.125rem;
+    height: 3.75rem;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .tiptap-upload-file-primary {
+    color: var(--tiptap-pdf-upload-icon-doc-bg);
+    position: absolute;
+  }
+
+  .tiptap-upload-file-secondary {
+    position: absolute;
+    top: 0;
+    right: 0.25rem;
+    bottom: 0;
+    color: var(--tiptap-pdf-upload-icon-doc-border);
+  }
+
+  .tiptap-pdf-upload-node__icon-badge {
+    position: absolute;
+    width: 1.75rem;
+    height: 1.75rem;
+    bottom: 0;
+    right: 0;
+    background-color: var(--tiptap-pdf-upload-icon-bg);
+    border-radius: var(--tt-radius-lg, 0.75rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tiptap-upload-badge-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: var(--tiptap-pdf-upload-icon-color);
+  }
+
+  .tiptap-pdf-upload-node__headline {
+    color: var(--tiptap-pdf-upload-text-color);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: normal;
+  }
+
+  .tiptap-pdf-upload-node__headline-link {
+    font-style: normal;
+    text-decoration: underline;
+  }
+
+  .tiptap-pdf-upload-node__helper {
+    color: var(--tiptap-pdf-upload-subtext-color);
+    font-weight: 600;
+    line-height: normal;
+    font-size: 0.75rem;
+  }
+
+  .tiptap-pdf-upload-node__error {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #dc2626;
+  }
+
+  .tiptap-pdf-upload-node__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--tiptap-pdf-upload-card-border);
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+  }
+
+  .tiptap-pdf-upload-node__title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--tiptap-pdf-upload-card-text);
+  }
+
+  .tiptap-pdf-upload-node__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tiptap-pdf-upload-node__action {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: none;
+    padding: 0.5rem 0.625rem;
+    border-radius: 0.5rem;
+    color: var(--tiptap-pdf-upload-card-text);
+    transition: background-color 0.2s ease;
+  }
+
+  .tiptap-pdf-upload-node__action:hover {
+    background: var(--tiptap-pdf-upload-card-hover);
+  }
+
+  .tiptap-pdf-upload-node__media {
+    width: 100%;
+    min-height: 520px;
+    display: block;
+    border: 0;
+    background: #000;
+    border-radius: var(--tt-radius-md, 0.5rem);
+  }
+}
+
+.tiptap.ProseMirror.ProseMirror-focused {
+  .ProseMirror-selectednode .tiptap-pdf-upload-node__dropzone {
+    border-color: var(--tiptap-pdf-upload-active);
+    background: transparent;
+  }
+}
+
+@media (max-width: 480px) {
+  .tiptap-pdf-upload-node {
+    .tiptap-pdf-upload-node__dropzone {
+      padding: 1.5rem 1rem;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { Node } from "@tiptap/core";
+export { AudioUploadNode as Audio } from "@/components/tiptap-node/audio-upload-node";
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
@@ -8,7 +9,7 @@ declare module "@tiptap/core" {
   }
 }
 
-export const Audio = Node.create({
+export const AudioUploadNode = Node.create({
   name: "audio",
   group: "block",
   atom: true,

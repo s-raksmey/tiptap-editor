@@ -1,0 +1,213 @@
+:root {
+  --tiptap-video-upload-active: var(--tt-brand-color-500);
+  --tiptap-video-upload-icon-bg: var(--tt-brand-color-500);
+
+  --tiptap-video-upload-text-color: var(--tt-gray-light-a-700);
+  --tiptap-video-upload-subtext-color: var(--tt-gray-light-a-400);
+  --tiptap-video-upload-border: var(--tt-gray-light-a-300);
+  --tiptap-video-upload-border-hover: var(--tt-gray-light-a-400);
+  --tiptap-video-upload-border-active: var(--tt-brand-color-500);
+
+  --tiptap-video-upload-icon-doc-bg: var(--tt-gray-light-a-200);
+  --tiptap-video-upload-icon-doc-border: var(--tt-gray-light-300);
+  --tiptap-video-upload-icon-color: var(--white);
+
+  --tiptap-video-upload-card-border: var(--tt-gray-light-a-200);
+  --tiptap-video-upload-card-text: var(--tt-gray-light-a-700);
+  --tiptap-video-upload-card-hover: var(--tt-gray-light-a-50);
+}
+
+.dark {
+  --tiptap-video-upload-active: var(--tt-brand-color-400);
+  --tiptap-video-upload-icon-bg: var(--tt-brand-color-400);
+
+  --tiptap-video-upload-text-color: var(--tt-gray-dark-a-700);
+  --tiptap-video-upload-subtext-color: var(--tt-gray-dark-a-400);
+  --tiptap-video-upload-border: var(--tt-gray-dark-a-300);
+  --tiptap-video-upload-border-hover: var(--tt-gray-dark-a-400);
+  --tiptap-video-upload-border-active: var(--tt-brand-color-400);
+
+  --tiptap-video-upload-icon-doc-bg: var(--tt-gray-dark-a-200);
+  --tiptap-video-upload-icon-doc-border: var(--tt-gray-dark-300);
+  --tiptap-video-upload-icon-color: var(--black);
+
+  --tiptap-video-upload-card-border: rgba(255, 255, 255, 0.12);
+  --tiptap-video-upload-card-text: rgba(255, 255, 255, 0.84);
+  --tiptap-video-upload-card-hover: rgba(255, 255, 255, 0.08);
+}
+
+.tiptap-video-upload-node {
+  margin: 2rem 0;
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .tiptap-video-upload-node__dropzone {
+    padding: 2rem 1.5rem;
+    border: 1.5px dashed var(--tiptap-video-upload-border);
+    border-radius: var(--tt-radius-md, 0.5rem);
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    background: transparent;
+
+    &:hover {
+      border-color: var(--tiptap-video-upload-border-hover);
+    }
+
+    &.drag-over {
+      border-color: var(--tiptap-video-upload-border-active);
+      background-color: rgba(
+        var(--tiptap-image-upload-active-rgb, 139, 92, 246),
+        0.1
+      );
+    }
+  }
+
+  &.is-dragging .tiptap-video-upload-node__dropzone {
+    border-color: var(--tiptap-video-upload-border-active);
+    background-color: rgba(
+      var(--tiptap-image-upload-active-rgb, 139, 92, 246),
+      0.05
+    );
+  }
+
+  .tiptap-video-upload-node__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.25rem;
+    user-select: none;
+  }
+
+  .tiptap-video-upload-node__dropzone-file {
+    position: relative;
+    width: 3.125rem;
+    height: 3.75rem;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .tiptap-upload-file-primary {
+    color: var(--tiptap-video-upload-icon-doc-bg);
+    position: absolute;
+  }
+
+  .tiptap-upload-file-secondary {
+    position: absolute;
+    top: 0;
+    right: 0.25rem;
+    bottom: 0;
+    color: var(--tiptap-video-upload-icon-doc-border);
+  }
+
+  .tiptap-video-upload-node__icon-badge {
+    position: absolute;
+    width: 1.75rem;
+    height: 1.75rem;
+    bottom: 0;
+    right: 0;
+    background-color: var(--tiptap-video-upload-icon-bg);
+    border-radius: var(--tt-radius-lg, 0.75rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tiptap-upload-badge-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: var(--tiptap-video-upload-icon-color);
+  }
+
+  .tiptap-video-upload-node__headline {
+    color: var(--tiptap-video-upload-text-color);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: normal;
+  }
+
+  .tiptap-video-upload-node__headline-link {
+    font-style: normal;
+    text-decoration: underline;
+  }
+
+  .tiptap-video-upload-node__helper {
+    color: var(--tiptap-video-upload-subtext-color);
+    font-weight: 600;
+    line-height: normal;
+    font-size: 0.75rem;
+  }
+
+  .tiptap-video-upload-node__error {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #dc2626;
+  }
+
+  .tiptap-video-upload-node__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--tiptap-video-upload-card-border);
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+  }
+
+  .tiptap-video-upload-node__title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--tiptap-video-upload-card-text);
+  }
+
+  .tiptap-video-upload-node__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tiptap-video-upload-node__action {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    padding: 0.5rem 0.625rem;
+    border-radius: 0.5rem;
+    color: var(--tiptap-video-upload-card-text);
+    transition: background-color 0.2s ease;
+  }
+
+  .tiptap-video-upload-node__action:hover {
+    background: var(--tiptap-video-upload-card-hover);
+  }
+
+  .tiptap-video-upload-node__media {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    background: #000;
+    border-radius: var(--tt-radius-md, 0.5rem);
+  }
+}
+
+.tiptap.ProseMirror.ProseMirror-focused {
+  .ProseMirror-selectednode .tiptap-video-upload-node__dropzone {
+    border-color: var(--tiptap-video-upload-active);
+    background: transparent;
+  }
+}
+
+@media (max-width: 480px) {
+  .tiptap-video-upload-node {
+    .tiptap-video-upload-node__dropzone {
+      padding: 1.5rem 1rem;
+    }
+  }
+}

@@ -28,7 +28,7 @@ import {
 } from "@/components/tiptap-ui-primitive/toolbar";
 
 // --- Tiptap Node ---
-import "@/components/tiptap-node/audio-node/audio-node.scss";
+import "@/components/tiptap-node/audio-upload-node/audio-upload-node.scss";
 import "@/components/tiptap-node/blockquote-node/blockquote-node.scss";
 import "@/components/tiptap-node/code-block-node/code-block-node.scss";
 import "@/components/tiptap-node/heading-node/heading-node.scss";
@@ -38,8 +38,8 @@ import "@/components/tiptap-node/image-node/image-node.scss";
 import { ImageUploadNode } from "@/components/tiptap-node/image-upload-node/image-upload-node-extension";
 import "@/components/tiptap-node/list-node/list-node.scss";
 import "@/components/tiptap-node/paragraph-node/paragraph-node.scss";
-import "@/components/tiptap-node/pdf-node/pdf-node.scss";
-import "@/components/tiptap-node/video-node/video-node.scss";
+import "@/components/tiptap-node/pdf-upload-node/pdf-upload-node.scss";
+import "@/components/tiptap-node/video-upload-node/video-upload-node.scss";
 
 // --- Tiptap UI ---
 import { AudioUploadButton } from "@/components/tiptap-ui/audio-upload-button";
@@ -98,7 +98,7 @@ const MainToolbarContent = ({
 }) => {
   return (
     <>
-      <Spacer />
+      {!isMobile && <Spacer />}
 
       <ToolbarGroup>
         <UndoRedoButton action="undo" />
@@ -151,23 +151,20 @@ const MainToolbarContent = ({
 
       <ToolbarSeparator />
 
-      <ToolbarGroup>
-        <ImageUploadButton text="Add" />
+      <ToolbarGroup className="tiptap-toolbar-group--media">
+        <ImageUploadButton text={isMobile ? "Img" : "Add"} />
+        <PdfUploadButton editor={editor} text={isMobile ? "PDF" : "PDF"} />
+        <VideoUploadButton
+          editor={editor}
+          text={isMobile ? "Video" : "Video"}
+        />
+        <AudioUploadButton
+          editor={editor}
+          text={isMobile ? "Audio" : "Audio"}
+        />
       </ToolbarGroup>
 
-      <ToolbarGroup>
-        <PdfUploadButton editor={editor} />
-      </ToolbarGroup>
-
-      <ToolbarGroup>
-        <VideoUploadButton editor={editor} />
-      </ToolbarGroup>
-
-      <ToolbarGroup>
-        <AudioUploadButton editor={editor} />
-      </ToolbarGroup>
-
-      <Spacer />
+      {!isMobile && <Spacer />}
 
       {isMobile && <ToolbarSeparator />}
 

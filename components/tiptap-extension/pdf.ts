@@ -1,4 +1,5 @@
 import { Node } from "@tiptap/core";
+export { PdfUploadNode as Pdf } from "@/components/tiptap-node/pdf-upload-node";
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
@@ -8,7 +9,7 @@ declare module "@tiptap/core" {
   }
 }
 
-export const Pdf = Node.create({
+export const PdfUploadNode = Node.create({
   name: "pdf",
 
   group: "block",

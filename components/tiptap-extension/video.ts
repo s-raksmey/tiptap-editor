@@ -1,4 +1,5 @@
 import { Node } from "@tiptap/core";
+export { VideoUploadNode as Video } from "@/components/tiptap-node/video-upload-node";
 
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
@@ -8,7 +9,7 @@ declare module "@tiptap/core" {
   }
 }
 
-export const Video = Node.create({
+export const VideoUploadNode = Node.create({
   name: "video",
   group: "block",
   atom: true,
